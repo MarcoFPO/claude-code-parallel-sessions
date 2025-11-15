@@ -172,7 +172,7 @@ Each session wrapper sets these variables, redirecting all writes to session-spe
 ## Full Documentation
 
 See complete architecture document:
-`/home/mdoehler/claude-code-parallel-sessions-architecture.md`
+`/home/UserID/claude-code-parallel-sessions-architecture.md`
 
 Contains:
 - Detailed technical design

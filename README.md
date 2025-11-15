@@ -59,7 +59,7 @@ ssh root@10.1.1.184
 su - mdoehler
 
 # Session starten
-/home/mdoehler/.claude/bin/claude-session
+/home/UserID/.claude/bin/claude-session
 ```
 
 ### Parallele Sessions
@@ -68,12 +68,12 @@ su - mdoehler
 # Terminal 1: Session 1
 ssh root@10.1.1.184
 su - mdoehler
-/home/mdoehler/.claude/bin/claude-session
+/home/UserID/.claude/bin/claude-session
 
 # Terminal 2: Session 2 (gleichzeitig)
 ssh root@10.1.1.184
 su - mdoehler
-/home/mdoehler/.claude/bin/claude-session
+/home/UserID/.claude/bin/claude-session
 ```
 
 Beide Sessions sind vollständig isoliert:
@@ -84,7 +84,7 @@ Beide Sessions sind vollständig isoliert:
 ### Update-Log überwachen
 
 ```bash
-tail -f /home/mdoehler/.claude/update.log
+tail -f /home/UserID/.claude/update.log
 ```
 
 ## Architektur
@@ -92,7 +92,7 @@ tail -f /home/mdoehler/.claude/update.log
 ### Verzeichnisstruktur
 
 ```
-/home/mdoehler/.claude/
+/home/UserID/.claude/
 ├── bin/
 │   ├── claude-session       # Session-Launcher (mit Auto-Update)
 │   ├── check-update.sh      # Auto-Update-Script
@@ -195,10 +195,10 @@ fi
 **Session-Wartung**:
 ```bash
 # Alte/leere Sessions bereinigen
-python3 /home/mdoehler/.claude/bin/cleanup-sessions.py
+python3 /home/UserID/.claude/bin/cleanup-sessions.py
 
 # Dry-run
-python3 /home/mdoehler/.claude/bin/cleanup-sessions.py --dry-run
+python3 /home/UserID/.claude/bin/cleanup-sessions.py --dry-run
 ```
 
 ## Dokumentation
@@ -231,8 +231,8 @@ python3 /home/mdoehler/.claude/bin/cleanup-sessions.py --dry-run
 
 **Lösung**:
 ```bash
-chmod +x /home/mdoehler/.claude/bin/claude-session
-chmod +x /home/mdoehler/.claude/bin/check-update.sh
+chmod +x /home/UserID/.claude/bin/claude-session
+chmod +x /home/UserID/.claude/bin/check-update.sh
 ```
 
 ### History wird nicht isoliert
@@ -243,7 +243,7 @@ chmod +x /home/mdoehler/.claude/bin/check-update.sh
 ```bash
 # In Claude-Session:
 echo $CLAUDE_CONFIG_DIR
-# Sollte zeigen: /home/mdoehler/.claude/sessions/{uuid}
+# Sollte zeigen: /home/UserID/.claude/sessions/{uuid}
 ```
 
 ### Updates schlagen fehl
@@ -263,7 +263,7 @@ cat /etc/sudoers.d/claude-update
 
 **Lösung**: Cleanup-Tool nutzen
 ```bash
-python3 /home/mdoehler/.claude/bin/cleanup-sessions.py
+python3 /home/UserID/.claude/bin/cleanup-sessions.py
 ```
 
 ## Sicherheit

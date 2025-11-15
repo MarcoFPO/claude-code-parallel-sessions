@@ -27,7 +27,7 @@ Target: Claude Code v2.0.36+
 
 ## Executive Summary
 
-This document provides a comprehensive architecture for running multiple parallel Claude Code sessions via SSH from the `/home/mdoehler` directory. The solution ensures complete session isolation while sharing common resources (skills, custom agents, slash commands) and maintaining all existing functionality.
+This document provides a comprehensive architecture for running multiple parallel Claude Code sessions via SSH from the `/home/UserID` directory. The solution ensures complete session isolation while sharing common resources (skills, custom agents, slash commands) and maintaining all existing functionality.
 
 **Key Goals Achieved:**
 - ✅ Multiple parallel sessions with complete isolation
@@ -123,7 +123,7 @@ This document provides a comprehensive architecture for running multiple paralle
 
 ### Existing Directory Structure
 
-Based on analysis of `/home/mdoehler/.claude/`:
+Based on analysis of `/home/UserID/.claude/`:
 
 ```
 ~/.claude/
@@ -315,7 +315,7 @@ Each session maintains a `metadata.json`:
   "sessionName": "netbox-integration-dev",
   "userId": "mdoehler",
   "sshClient": "192.168.1.100 54321 22",
-  "workingDirectory": "/home/mdoehler",
+  "workingDirectory": "/home/UserID",
   "startTime": "2025-11-08T14:43:00Z",
   "endTime": null,
   "status": "active",
@@ -378,7 +378,7 @@ MEMORY_DATA_DIR="$CLAUDE_SESSION_DIR/mcp-state/memory-local" \
 ### Complete Directory Layout
 
 ```
-/home/mdoehler/
+/home/UserID/
 ├── .claude/                           # Main Claude directory
 │   ├── agents/                        # [SHARED] Custom agent definitions
 │   ├── backups/                       # [SHARED] Backup files
@@ -473,7 +473,7 @@ CREATE INDEX idx_start_time ON sessions(start_time);
       "sessionName": "netbox-dev",
       "userId": "mdoehler",
       "sshClient": "192.168.1.100 54321 22",
-      "workingDirectory": "/home/mdoehler",
+      "workingDirectory": "/home/UserID",
       "startTime": 1699450980,
       "endTime": null,
       "status": "active",
@@ -705,7 +705,7 @@ EOF
 
 #### Step 3.1: Main Session Wrapper (`claude-session`)
 
-Create `/home/mdoehler/.claude/bin/claude-session`:
+Create `/home/UserID/.claude/bin/claude-session`:
 
 ```bash
 #!/bin/bash
@@ -979,7 +979,7 @@ chmod +x "$HOME/.claude/bin/claude-session"
 
 #### Step 3.2: Session List Script (`claude-session-list`)
 
-Create `/home/mdoehler/.claude/bin/claude-session-list`:
+Create `/home/UserID/.claude/bin/claude-session-list`:
 
 ```bash
 #!/bin/bash
@@ -1070,7 +1070,7 @@ chmod +x "$HOME/.claude/bin/claude-session-list"
 
 #### Step 3.3: Session Cleanup Script (`claude-session-cleanup`)
 
-Create `/home/mdoehler/.claude/bin/claude-session-cleanup`:
+Create `/home/UserID/.claude/bin/claude-session-cleanup`:
 
 ```bash
 #!/bin/bash
@@ -1172,7 +1172,7 @@ chmod +x "$HOME/.claude/bin/claude-session-cleanup"
 
 #### Step 4.1: Add Aliases to `.bashrc`
 
-Add to `/home/mdoehler/.bashrc`:
+Add to `/home/UserID/.bashrc`:
 
 ```bash
 # Claude Code Session Management
@@ -1587,7 +1587,7 @@ which claude
 CLAUDE_BIN="$(which claude)"
 
 # Or add to PATH
-export PATH="/home/mdoehler/.npm-global/bin:$PATH"
+export PATH="/home/UserID/.npm-global/bin:$PATH"
 ```
 
 #### Issue 6: Shared resource conflicts
@@ -2078,7 +2078,7 @@ Each Claude Code session consumes:
 1. **Session Cleanup**: Regularly clean up inactive sessions
    ```bash
    # Automated cleanup via cron
-   0 2 * * * /home/mdoehler/.claude/bin/claude-session-cleanup --days 30
+   0 2 * * * /home/UserID/.claude/bin/claude-session-cleanup --days 30
    ```
 
 2. **MCP Server Optimization**: Disable unused MCP servers

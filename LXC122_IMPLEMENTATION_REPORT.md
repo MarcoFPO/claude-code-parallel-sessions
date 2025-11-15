@@ -30,7 +30,7 @@ Fixed critical history isolation bug in Claude Code parallel sessions architectu
 |-----------|--------|--------|
 | Session launcher | 1 line: `CLAUDE_CONFIG_DIR` instead of `CLAUDE_SESSION_DIR` | History isolation now works |
 | Session cleanup tool | New 101-line Python script | Maintenance enabled |
-| Session directories | Created `/home/mdoehler/.claude/sessions/` on LXC 122 | Infrastructure deployed |
+| Session directories | Created `/home/UserID/.claude/sessions/` on LXC 122 | Infrastructure deployed |
 | Registry tracking | Architecture uses `.registry`, cleanup uses registry detection | Both approaches compatible |
 
 ---
@@ -92,13 +92,13 @@ Fixed critical history isolation bug in Claude Code parallel sessions architectu
 ## Deployment Status
 
 **LXC 122 (10.1.1.184):**
-- Session launcher: `/home/mdoehler/.claude/bin/claude-session` ✅
-- Sessions directory: `/home/mdoehler/.claude/sessions/` ✅
-- Cleanup tool: `/home/mdoehler/.claude/bin/cleanup-sessions.py` ✅
-- Test results: `/home/mdoehler/.claude/sessions/PARALLEL_SESSION_TEST_REPORT.md` ✅
+- Session launcher: `/home/UserID/.claude/bin/claude-session` ✅
+- Sessions directory: `/home/UserID/.claude/sessions/` ✅
+- Cleanup tool: `/home/UserID/.claude/bin/cleanup-sessions.py` ✅
+- Test results: `/home/UserID/.claude/sessions/PARALLEL_SESSION_TEST_REPORT.md` ✅
 
-**Local System (/home/mdoehler):**
-- Cleanup tool: `/home/mdoehler/.claude/bin/cleanup-sessions.py` ✅
+**Local System (/home/UserID):**
+- Cleanup tool: `/home/UserID/.claude/bin/cleanup-sessions.py` ✅
 - Session launcher: Not yet deployed ⚠️
 
 ---
@@ -140,11 +140,11 @@ export CLAUDE_CONFIG_DIR="$session_dir"
 Claude Code hardcodes its history path to `${CLAUDE_CONFIG_DIR}/history.jsonl`. By redirecting the config directory to the session directory, each session automatically gets isolated history.
 
 **Files Modified:**
-- `/home/mdoehler/.claude/bin/claude-session` (1 line changed, backup created)
+- `/home/UserID/.claude/bin/claude-session` (1 line changed, backup created)
 
 **New Files Created:**
-- `/home/mdoehler/.claude/bin/cleanup-sessions.py` (101 lines, stdlib only)
-- `/home/mdoehler/.claude/sessions/` (directory structure)
+- `/home/UserID/.claude/bin/cleanup-sessions.py` (101 lines, stdlib only)
+- `/home/UserID/.claude/sessions/` (directory structure)
 
 ---
 
@@ -189,9 +189,9 @@ python3 ~/.claude/bin/cleanup-sessions.py --days 30
 
 **Created:**
 - `/tmp/SESSION_FIX_REPORT.md` (root cause analysis)
-- `/home/mdoehler/.claude/sessions/PARALLEL_SESSION_TEST_REPORT.md` (test results)
-- `/home/mdoehler/.claude/bin/README.md` (cleanup tool docs)
-- `/home/mdoehler/.claude/bin/DEPLOYMENT.md` (deployment guide)
+- `/home/UserID/.claude/sessions/PARALLEL_SESSION_TEST_REPORT.md` (test results)
+- `/home/UserID/.claude/bin/README.md` (cleanup tool docs)
+- `/home/UserID/.claude/bin/DEPLOYMENT.md` (deployment guide)
 
 **Updated:**
 - Session launcher with critical fix
