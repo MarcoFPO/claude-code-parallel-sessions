@@ -38,6 +38,12 @@ create_session_dir() {
     mkdir -p "$session_dir"/{todos,shell-snapshots,file-history,debug,project/-home-mdoehler,mcp-state}
     touch "$session_dir"/{history.jsonl,session.log}
 
+    # CRITICAL: Share credentials across all sessions
+    # Symlink .credentials.json from root .claude directory
+    if [ -f "$CLAUDE_ROOT/.credentials.json" ]; then
+        ln -sf "$CLAUDE_ROOT/.credentials.json" "$session_dir/.credentials.json"
+    fi
+
     log_success "Created session directory: $session_dir"
 }
 
