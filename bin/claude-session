@@ -31,10 +31,13 @@ generate_uuid() { cat /proc/sys/kernel/random/uuid; }
 create_session_dir() {
     local session_id="$1"
     local session_dir="$SESSIONS_DIR/$session_id"
-    
+
+    # Ensure sessions directory and active subdirectory exist
+    mkdir -p "$SESSIONS_DIR/active"
+
     mkdir -p "$session_dir"/{todos,shell-snapshots,file-history,debug,project/-home-mdoehler,mcp-state}
     touch "$session_dir"/{history.jsonl,session.log}
-    
+
     log_success "Created session directory: $session_dir"
 }
 
