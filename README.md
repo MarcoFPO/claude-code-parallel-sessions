@@ -1,6 +1,6 @@
 # Claude Code Parallel Sessions
 
-Vollständig implementierte und getestete Architektur für parallele Claude Code Sessions auf LXC 122.
+Vollständig implementierte und getestete Architektur für parallele Claude Code Sessions auf ClaudeHost.
 
 ## Übersicht
 
@@ -8,7 +8,7 @@ Dieses Projekt ermöglicht das Ausführen mehrerer paralleler Claude Code Sessio
 
 ## Status
 
-- ✅ **Production Ready** auf LXC 122 (ClaudeHost)
+- ✅ **Production Ready** auf ClaudeHost
 - ✅ Architektur vollständig implementiert
 - ✅ Session-Isolation getestet und verifiziert
 - ✅ Auto-Update-System integriert
@@ -16,7 +16,7 @@ Dieses Projekt ermöglicht das Ausführen mehrerer paralleler Claude Code Sessio
 
 ## Zielsystem
 
-- **Host**: LXC 122 (RClaude)
+- **Host**: ClaudeHost
 - **IP**: ClaudeHost
 - **Zugriff**: SSH via `UserID@Claude`
 - **User**: mdoehler
@@ -209,14 +209,6 @@ python3 /home/UserID/.claude/bin/cleanup-sessions.py --dry-run
   - Schnelleinstieg
   - Wichtigste Befehle
   - Troubleshooting
-
-### Implementation Report
-
-- **[LXC122 Implementation Report](LXC122_IMPLEMENTATION_REPORT.md)** (6.4 KB)
-  - Implementierungs-Status: 95% komplett
-  - Test-Ergebnisse (alle PASS)
-  - Deployment-Details
-  - Nächste Schritte (optional)
 
 ## Troubleshooting
 

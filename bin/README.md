@@ -231,7 +231,6 @@ All scripts use environment variables and can be customized:
 For complete architectural documentation, see:
 - [Architecture Document](../docs/claude-code-parallel-sessions-architecture.md)
 - [Quick Start Guide](../docs/claude-sessions-quick-start.md)
-- [Implementation Report](../LXC122_IMPLEMENTATION_REPORT.md)
 
 ## License
 
