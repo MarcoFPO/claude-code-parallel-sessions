@@ -52,7 +52,7 @@ Alle Sessions teilen:
 ### Session starten
 
 ```bash
-# SSH zu LXC 122
+# SSH zu Claude
 ssh UserID@Claude
 
 # Session starten
