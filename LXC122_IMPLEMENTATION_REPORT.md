@@ -1,7 +1,7 @@
 # LXC 122 Parallel Sessions Implementation Report
 
 **Date:** 2025-11-15
-**System:** LXC 122 (10.1.1.184)
+**System:** LXC 122 (ClaudeHost)
 **Status:** PRODUCTION READY
 
 ---
@@ -91,7 +91,7 @@ Fixed critical history isolation bug in Claude Code parallel sessions architectu
 
 ## Deployment Status
 
-**LXC 122 (10.1.1.184):**
+**LXC 122 (ClaudeHost):**
 - Session launcher: `/home/UserID/.claude/bin/claude-session` ✅
 - Sessions directory: `/home/UserID/.claude/sessions/` ✅
 - Cleanup tool: `/home/UserID/.claude/bin/cleanup-sessions.py` ✅

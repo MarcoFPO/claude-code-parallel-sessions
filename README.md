@@ -8,7 +8,7 @@ Dieses Projekt ermöglicht das Ausführen mehrerer paralleler Claude Code Sessio
 
 ## Status
 
-- ✅ **Production Ready** auf LXC 122 (10.1.1.184)
+- ✅ **Production Ready** auf LXC 122 (ClaudeHost)
 - ✅ Architektur vollständig implementiert
 - ✅ Session-Isolation getestet und verifiziert
 - ✅ Auto-Update-System integriert
@@ -17,8 +17,8 @@ Dieses Projekt ermöglicht das Ausführen mehrerer paralleler Claude Code Sessio
 ## Zielsystem
 
 - **Host**: LXC 122 (RClaude)
-- **IP**: 10.1.1.184
-- **Zugriff**: SSH via `root@10.1.1.184`
+- **IP**: ClaudeHost
+- **Zugriff**: SSH via `UserID@Claude`
 - **User**: mdoehler
 - **Claude Version**: 2.0.42 (auto-update enabled)
 
@@ -53,7 +53,7 @@ Alle Sessions teilen:
 
 ```bash
 # SSH zu LXC 122
-ssh root@10.1.1.184
+ssh UserID@Claude
 
 # Als mdoehler-User
 su - mdoehler
@@ -66,12 +66,12 @@ su - mdoehler
 
 ```bash
 # Terminal 1: Session 1
-ssh root@10.1.1.184
+ssh UserID@Claude
 su - mdoehler
 /home/UserID/.claude/bin/claude-session
 
 # Terminal 2: Session 2 (gleichzeitig)
-ssh root@10.1.1.184
+ssh UserID@Claude
 su - mdoehler
 /home/UserID/.claude/bin/claude-session
 ```
