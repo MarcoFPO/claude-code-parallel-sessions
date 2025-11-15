@@ -55,9 +55,6 @@ Alle Sessions teilen:
 # SSH zu LXC 122
 ssh UserID@Claude
 
-# Als mdoehler-User
-su - mdoehler
-
 # Session starten
 /home/UserID/.claude/bin/claude-session
 ```
@@ -67,12 +64,10 @@ su - mdoehler
 ```bash
 # Terminal 1: Session 1
 ssh UserID@Claude
-su - mdoehler
 /home/UserID/.claude/bin/claude-session
 
 # Terminal 2: Session 2 (gleichzeitig)
 ssh UserID@Claude
-su - mdoehler
 /home/UserID/.claude/bin/claude-session
 ```
 
