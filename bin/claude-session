@@ -40,8 +40,9 @@ create_session_dir() {
 
     # CRITICAL: Share credentials across all sessions
     # Symlink .credentials.json from root .claude directory
+    # Use -n flag to prevent dereferencing if target exists
     if [ -f "$CLAUDE_ROOT/.credentials.json" ]; then
-        ln -sf "$CLAUDE_ROOT/.credentials.json" "$session_dir/.credentials.json"
+        ln -sfn "$CLAUDE_ROOT/.credentials.json" "$session_dir/.credentials.json"
     fi
 
     log_success "Created session directory: $session_dir"
